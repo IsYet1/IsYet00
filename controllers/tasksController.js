@@ -22,6 +22,9 @@
 
         app.post('/addtask', taskList.addTask.bind(taskList));
 
+        app.post('/completetask', taskList.completeTask.bind(taskList));
+
+
 
     } //End of Init
 

@@ -62,7 +62,7 @@ TaskDao.prototype = {
         });
     },
 
-    updateItem: function (itemId, callback) {
+    completeItem: function (itemId, callback) {
         var self = this;
 
         self.getItem(itemId, function (err, doc) {
