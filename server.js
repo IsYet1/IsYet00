@@ -10,6 +10,14 @@ var config = require('./config');
 var TaskList = require('./routes/tasklist');
 var TaskDao = require('./models/taskDao');
 
+var docDbClient = new DocumentDBClient(config.host, {
+    masterKey: config.authKey
+});
+
+var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
+var taskList = new TaskList(taskDao);
+taskDao.init();
+
 
 var app = express();
 
