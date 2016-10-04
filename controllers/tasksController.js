@@ -17,11 +17,7 @@
         var taskList = new TaskList(taskDao);
         taskDao.init();
 
-        console.log("\n\ntaskDao:"); 
-        console.log(taskDao);
-        console.log("\n\ntasklist:"); 
-        console.log(taskList);
-
+        app.get('/tasks/', taskList.getIncompleteTasks.bind(taskList));
         app.get('/tasks/status/:status', taskList.getIncompleteTasks.bind(taskList));
 
     } //End of Init

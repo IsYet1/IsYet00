@@ -13,6 +13,7 @@ TaskList.prototype = {
 
         var completed = false;
 
+        var qry = 'SELECT * FROM root r WHERE r.completed=@completed';
         switch (req.params.status) {
             case "0":
                 completed = false;
@@ -22,11 +23,12 @@ TaskList.prototype = {
                 break;
         
             default:
+                qry = 'SELECT * FROM root r';
                 break;
         }
         
         var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.completed=@completed',
+            query: qry,
             parameters: [{
                 name: '@completed',
                 value: completed
