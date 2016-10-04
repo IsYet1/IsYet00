@@ -11,13 +11,25 @@ TaskList.prototype = {
     getIncompleteTasks: function (req, res) {
         var self = this;
 
-        var status = req.status;
+        var completed = false;
+
+        switch (req.params.status) {
+            case "0":
+                completed = false;
+                break;
+            case "1":
+                completed = true;
+                break;
+        
+            default:
+                break;
+        }
         
         var querySpec = {
             query: 'SELECT * FROM root r WHERE r.completed=@completed',
             parameters: [{
                 name: '@completed',
-                value: false
+                value: completed
             }]
         };
 
