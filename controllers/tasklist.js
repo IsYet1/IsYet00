@@ -48,6 +48,7 @@ TaskList.prototype = {
     addTask: function (req, res) {
         var self = this;
         var item = req.body;
+        item = {name: "Test Post Task", category: "Manual Entry"};
 
         self.taskDao.addItem(item, function (err) {
             if (err) {
