@@ -10,7 +10,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "async": "~2.0.1",
-    "documentdb": "~1.10.0"
+    "documentdb": "~1.10.0",
+    "body-parser": "~1.15.2"
   },
   "devDependencies": {}
 }

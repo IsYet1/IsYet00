@@ -3,8 +3,10 @@ console.log("Starting up");
 // Load the http module to create an http server
 var http = require('http');
 var express = require("express");
+var bodyParser = require('body-parser');
 
 var app = express();
+app.use(bodyParser.json());
 
 var port = process.env.PORT || 8000;
 
