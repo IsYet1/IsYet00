@@ -61,8 +61,10 @@ TaskList.prototype = {
     updateTask: function (req, res) {
         var self = this;
         var item = req.body;
+        var itemId = item.id;
+        // var itemRId = item._rid;
 
-        self.taskDao.addItem(item, function (err) {
+        self.taskDao.updateItem(itemId, item, function (err) {
             if (err) {
                 throw (err);
             }

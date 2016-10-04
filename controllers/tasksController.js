@@ -22,7 +22,7 @@
 
         app.post('/addtask', taskList.addTask.bind(taskList));
 
-        app.post('/completetask', taskList.updateTask.bind(taskList));
+        app.post('/updatetask', taskList.updateTask.bind(taskList));
 
 
 
