@@ -4,8 +4,11 @@ console.log("Starting up");
 var http = require('http');
 var express = require("express");
 
+
 var DocumentDBClient = require('documentdb').DocumentClient;
 var config = require('./config');
+var TaskList = require('./routes/tasklist');
+var TaskDao = require('./models/taskDao');
 
 
 var app = express();
