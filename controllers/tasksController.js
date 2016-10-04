@@ -22,7 +22,7 @@
         console.log("\n\ntasklist:"); 
         console.log(taskList);
 
-        app.get('/tasks2/', taskList.showTasks.bind(taskList));
+        app.get('/tasks2/', taskList.getIncompleteTasks.bind(taskList));
 
         app.get("/tasks1/", function (req, res) {
             console.log("In the Get");

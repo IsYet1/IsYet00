@@ -8,8 +8,7 @@ function TaskList(taskDao) {
 module.exports = TaskList;
 
 TaskList.prototype = {
-    getIncompleteTasks: function (taskDao1) {
-        console.log("In Incomplete tasks");
+    getIncompleteTasks: function (req, res) {
         var self = this;
 
         var querySpec = {
@@ -20,19 +19,17 @@ TaskList.prototype = {
             }]
         };
 
-        console.log("line 23");
-        taskDao1.find(querySpec, function (err, items) {
+        self.taskDao.find(querySpec, function (err, items) {
             if (err) {
-                console.log("line 28");
                 throw (err);
             }
 
-                console.log("line 31");
-            // return("querySpec");
-            return(items);
+            res.send(items);
 
         });
     },
+
+
     showTasks: function (req, res) {
         var self = this;
 
