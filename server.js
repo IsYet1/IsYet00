@@ -22,7 +22,7 @@ var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
 var taskList = new TaskList(taskDao);
 taskDao.init();
 
-app.get('/api/tasks/', taskList.showTasks.bind(taskList));
+app.get('/tasks/', taskList.showTasks.bind(taskList));
 
 
 

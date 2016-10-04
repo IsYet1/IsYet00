@@ -25,10 +25,7 @@ TaskList.prototype = {
             }
 
             res.send(items);
-            // res.render('index', {
-            //     title: 'My ToDo List ',
-            //     tasks: items
-            // });
+
         });
     },
 
