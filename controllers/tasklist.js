@@ -45,28 +45,6 @@ TaskList.prototype = {
         });
     },
 
-
-    showTasks: function (req, res) {
-        var self = this;
-
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.completed=@completed',
-            parameters: [{
-                name: '@completed',
-                value: false
-            }]
-        };
-
-        self.taskDao.find(querySpec, function (err, items) {
-            if (err) {
-                throw (err);
-            }
-
-            res.send(items);
-
-        });
-    },
-
     addTask: function (req, res) {
         var self = this;
         var item = req.body;
