@@ -1,0 +1,15 @@
+{
+  "name": "ApiSvr01",
+  "version": "0.1.0",
+  "description": "Test API server to work with Azure push and updates.",
+  "main": "server.js",
+  "author": {
+    "name": "Don",
+    "email": "don@isyet.com"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+  }
+}
