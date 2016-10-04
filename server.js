@@ -4,17 +4,12 @@ console.log("Starting up");
 var http = require('http');
 var express = require("express");
 
-
 var app = express();
 
 var port = process.env.PORT || 8000;
 
 var controllers = require("./controllers");
 controllers.init(app);
-
-app.get('/', function(req, res){
-    res.send("Test from Express. 30-Sep 1625 Did this fix the thisis issue?");
-});
 
 var server = http.createServer(app);
 server.listen(port);

@@ -8,8 +8,9 @@
     "email": "don@isyet.com"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "async": "~2.0.1",
+    "documentdb": "~1.10.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
