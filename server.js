@@ -4,6 +4,10 @@ console.log("Starting up");
 var http = require('http');
 var express = require("express");
 
+var app = express();
+
+var port = process.env.PORT || 8000;
+
 
 var DocumentDBClient = require('documentdb').DocumentClient;
 var config = require('./config');
@@ -18,10 +22,9 @@ var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
 var taskList = new TaskList(taskDao);
 taskDao.init();
 
+app.get('/api/tasks/', taskList.showTasks.bind(taskList));
 
-var app = express();
 
-var port = process.env.PORT || 8000;
 
 var controllers = require("./controllers");
 controllers.init(app);
