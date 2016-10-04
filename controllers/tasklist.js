@@ -8,7 +8,7 @@ function TaskList(taskDao) {
 module.exports = TaskList;
 
 TaskList.prototype = {
-    getIncompleteTasks: function (req, res) {
+    getTasks: function (req, res) {
         var self = this;
 
         var completed = false;

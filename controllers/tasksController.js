@@ -17,8 +17,8 @@
         var taskList = new TaskList(taskDao);
         taskDao.init();
 
-        app.get('/tasks/', taskList.getIncompleteTasks.bind(taskList));
-        app.get('/tasks/status/:status', taskList.getIncompleteTasks.bind(taskList));
+        app.get('/tasks/', taskList.getTasks.bind(taskList));
+        app.get('/tasks/status/:status', taskList.getTasks.bind(taskList));
 
     } //End of Init
 
