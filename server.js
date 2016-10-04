@@ -8,30 +8,8 @@ var app = express();
 
 var port = process.env.PORT || 8000;
 
-
-var DocumentDBClient = require('documentdb').DocumentClient;
-var config = require('./config');
-var TaskList = require('./routes/tasklist');
-var TaskDao = require('./models/taskDao');
-
-var docDbClient = new DocumentDBClient(config.host, {
-    masterKey: config.authKey
-});
-
-var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
-var taskList = new TaskList(taskDao);
-taskDao.init();
-
-app.get('/tasks/', taskList.showTasks.bind(taskList));
-
-
-
 var controllers = require("./controllers");
 controllers.init(app);
-
-app.get('/', function(req, res){
-    res.send("Test from Express. 30-Sep 1625 Did this fix the thisis issue?");
-});
 
 var server = http.createServer(app);
 server.listen(port);

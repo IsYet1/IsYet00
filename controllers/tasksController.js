@@ -6,7 +6,7 @@
 
         var DocumentDBClient = require('documentdb').DocumentClient;
         var config = require('../config');
-        var TaskList = require('../routes/tasklist');
+        var TaskList = require('./tasklist');
         var TaskDao = require('../models/taskDao');
 
         var docDbClient = new DocumentDBClient(config.host, {
@@ -22,17 +22,7 @@
         console.log("\n\ntasklist:"); 
         console.log(taskList);
 
-        app.get('/tasks2/', taskList.getIncompleteTasks.bind(taskList));
-
-        app.get("/tasks1/", function (req, res) {
-            console.log("In the Get");
-            // res.set("Content-Type", "application/json");
-            
-            // var taskItems = taskList.getIncompleteTasks.bind(taskList);
-            
-            res.send(taskList.getIncompleteTasks.bind(taskList));
-            // res.send(taskItems);
-        });
+        app.get('/tasks/status/:status', taskList.getIncompleteTasks.bind(taskList));
 
     } //End of Init
 
