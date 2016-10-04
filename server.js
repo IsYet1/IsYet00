@@ -4,6 +4,9 @@ console.log("Starting up");
 var http = require('http');
 var express = require("express");
 
+var DocumentDBClient = require('documentdb').DocumentClient;
+var config = require('./config');
+
 
 var app = express();
 
