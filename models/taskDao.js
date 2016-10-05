@@ -67,10 +67,9 @@ TaskDao.prototype = {
                 callback(err);
 
             } else {
-                doc.completed = item.completed;
-                doc.name = item.name;
-                doc.category = item.category;
-
+                for (var propt in item){
+                    doc[propt] = item[propt];
+                }
                 self.client.replaceDocument(doc._self, doc, function (err, replaced) {
                     if (err) {
                         callback(err);
