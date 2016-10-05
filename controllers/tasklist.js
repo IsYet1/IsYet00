@@ -13,11 +13,11 @@ TaskList.prototype = {
 
         var id = req.params.id;
 
-        self.taskDao.getItem(id, function (err, items) {
+        self.taskDao.getItem(id, function (err, item) {
             if (err) {
                 throw (err);
             }
-            res.send(items);
+            res.send(item);
         });
     },
 
