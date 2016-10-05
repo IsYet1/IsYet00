@@ -18,6 +18,7 @@
         taskDao.init();
 
         app.get('/tasks/', taskList.getTasks.bind(taskList));
+        app.get('/tasks/:id', taskList.getTasks.bind(taskList));
         app.get('/tasks/status/:status', taskList.getTasks.bind(taskList));
 
         app.post('/addtask', taskList.addTask.bind(taskList));
