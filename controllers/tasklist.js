@@ -48,6 +48,11 @@ TaskList.prototype = {
         item.date = Date.now();
         item.completed = false;
 
+        if (item.t){
+            var ticks = item.t + (item.date * 10000 + 621355968000000000);
+            item.id = ticks;
+        }
+
         self.taskDao.addItem(item, function (err) {
             if (err) {
                 throw (err);
