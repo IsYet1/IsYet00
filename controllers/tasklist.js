@@ -8,6 +8,19 @@ function TaskList(taskDao) {
 module.exports = TaskList;
 
 TaskList.prototype = {
+    getOneTask : function(req, res){
+        var self = this;
+
+        var id = req.params.id;
+
+        self.taskDao.getItem(id, function (err, items) {
+            if (err) {
+                throw (err);
+            }
+            res.send(items);
+        });
+    },
+
     getTasks: function (req, res) {
         var self = this;
 
@@ -39,9 +52,7 @@ TaskList.prototype = {
             if (err) {
                 throw (err);
             }
-
             res.send(items);
-
         });
     },
 
