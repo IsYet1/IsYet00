@@ -45,6 +45,9 @@ TaskList.prototype = {
         var self = this;
         var item = req.body;
 
+        item.date = Date.now();
+        item.completed = false;
+
         self.taskDao.addItem(item, function (err) {
             if (err) {
                 throw (err);
