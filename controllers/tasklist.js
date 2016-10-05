@@ -57,8 +57,8 @@ TaskList.prototype = {
             if (err) {
                 throw (err);
             }
-
-            res.redirect('/');
+            res.send(item);
+            // res.redirect('/tasks/' + item.id);
         });
     },
 
@@ -66,14 +66,13 @@ TaskList.prototype = {
         var self = this;
         var item = req.body;
         var itemId = item.id;
-        // var itemRId = item._rid;
 
         self.taskDao.updateItem(itemId, item, function (err) {
             if (err) {
                 throw (err);
             }
-
-            res.redirect('/');
+            res.send(item);
+            // res.redirect('/tasks/' + item.id);
         });
     },
 
