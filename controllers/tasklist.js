@@ -24,28 +24,13 @@ TaskList.prototype = {
     getTasks: function (req, res) {
         var self = this;
 
-        var completed = false;
-
-        var qry = 'SELECT * FROM root r WHERE r.completed=@completed';
-        switch (req.params.status) {
-            case "0":
-                completed = false;
-                break;
-            case "1":
-                completed = true;
-                break;
-        
-            default:
-                qry = 'SELECT * FROM root r';
-                break;
-        }
+        var qry = 'SELECT * FROM root r';
+        if (req.params.field)
+            qry = 'SELECT * FROM root r WHERE r.' + req.params.field + '=' + req.params.value;
         
         var querySpec = {
-            query: qry,
-            parameters: [{
-                name: '@completed',
-                value: completed
-            }]
+            query: qry
+
         };
 
         self.taskDao.find(querySpec, function (err, items) {
@@ -58,7 +43,7 @@ TaskList.prototype = {
 
     addTask: function (req, res) {
         var self = this;
-        var item = req.body || {name: "Test Post Task", category: "Manual Entry"}; //In case the body isn't loaded. body-parser missing.'
+        var item = req.body;
 
         self.taskDao.addItem(item, function (err) {
             if (err) {
