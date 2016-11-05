@@ -1,0 +1,165 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IsYet00-DocDB-and-Node",
+		"_postman_id": "72896a97-f7ee-556a-2df5-0332c0557aee",
+		"description": "Document DB and Node.\nUses local and will use Azure. \n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all tasks from the API",
+			"request": {
+				"url": "http://{{host}}{{port}}/tasks",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{[loginToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\":\"0505038633\",\r\n    \"title\":\"Answers to Absurd Hypothetical Questions 1411\",\r\n    \"authors\":[\"Randall Munroe\"],\r\n    \"publishDate\":\"2014-09-04T00:00:00+00:00\",\r\n    \"genre\":\"Nonfiction\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Root Controller",
+			"request": {
+				"url": "http://{{host}}{{port}}/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Should just return text at the root."
+			},
+			"response": []
+		},
+		{
+			"name": "Get tasks from the API by status",
+			"request": {
+				"url": "http://{{host}}{{port}}/tasks/status/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{[loginToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\":\"0505038633\",\r\n    \"title\":\"Answers to Absurd Hypothetical Questions 1411\",\r\n    \"authors\":[\"Randall Munroe\"],\r\n    \"publishDate\":\"2014-09-04T00:00:00+00:00\",\r\n    \"genre\":\"Nonfiction\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Task",
+			"request": {
+				"url": "http://{{host}}{{port}}/addtask/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n  \t\n    \"t\": \"001\",\n    \"name\": \"Generic Add --- New item with Price. Change the priority\",\n    \"description\": \"Will this work. Edit 05-Oct\",\n    \"isComplete\": false,\n    \"price\": 29.29,\n    \"priority\": 0\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"url": "http://{{host}}{{port}}/updatetask",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"08f2d290-d187-4308-fa4f-6706a137b974\",\n\t\"name\": \"UPDATE Local post after adding id and completed\",\n\t\"category\": \"Posted local UPDATE\",\n    \"completed\": true\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get one task",
+			"request": {
+				"url": "http://{{host}}{{port}}/tasks/08f2d290-d187-4308-fa4f-6706a137b974",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{[loginToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\":\"0505038633\",\r\n    \"title\":\"Answers to Absurd Hypothetical Questions 1411\",\r\n    \"authors\":[\"Randall Munroe\"],\r\n    \"publishDate\":\"2014-09-04T00:00:00+00:00\",\r\n    \"genre\":\"Nonfiction\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get by query",
+			"request": {
+				"url": "http://{{host}}{{port}}/tasks/query/t/'000'",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{[loginToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\":\"0505038633\",\r\n    \"title\":\"Answers to Absurd Hypothetical Questions 1411\",\r\n    \"authors\":[\"Randall Munroe\"],\r\n    \"publishDate\":\"2014-09-04T00:00:00+00:00\",\r\n    \"genre\":\"Nonfiction\"\r\n}\r\n"
+				},
+				"description": "Update to make this more generic.\n\ntasks/query/completed/true\n--- Family Name ---\ntasks/query/lastName/'Andersen\"\n--- ID --\ntasks/query/id/'08f2d290-d187-4308-fa4f-6706a137b974'"
+			},
+			"response": []
+		}
+	]
+}
