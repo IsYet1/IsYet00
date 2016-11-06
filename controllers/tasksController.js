@@ -24,6 +24,7 @@
         app.post('/addtask', taskList.addTask.bind(taskList));
 
         app.post('/updatetask', taskList.updateTask.bind(taskList));
+        app.post('/completetasks', taskList.completeTask.bind(taskList));
 
 
 

@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "IsYet00-DocDB-and-Node",
-		"_postman_id": "72896a97-f7ee-556a-2df5-0332c0557aee",
+		"_postman_id": "5acc9ed5-9977-fc75-24b0-aa2c5b4f971d",
 		"description": "Document DB and Node.\nUses local and will use Azure. \n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -158,6 +158,26 @@
 					"raw": "{\r\n    \"isbn\":\"0505038633\",\r\n    \"title\":\"Answers to Absurd Hypothetical Questions 1411\",\r\n    \"authors\":[\"Randall Munroe\"],\r\n    \"publishDate\":\"2014-09-04T00:00:00+00:00\",\r\n    \"genre\":\"Nonfiction\"\r\n}\r\n"
 				},
 				"description": "Update to make this more generic.\n\ntasks/query/completed/true\n--- Family Name ---\ntasks/query/lastName/'Andersen\"\n--- ID --\ntasks/query/id/'08f2d290-d187-4308-fa4f-6706a137b974'"
+			},
+			"response": []
+		},
+		{
+			"name": "Complete Tasks",
+			"request": {
+				"url": "http://{{host}}{{port}}/completetasks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"002636113058716280000\": \"true\"\n}"
+				},
+				"description": ""
 			},
 			"response": []
 		}

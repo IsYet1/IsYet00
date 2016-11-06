@@ -82,7 +82,7 @@ TaskDao.prototype = {
         });
     },
     
-    completeItem: function (itemId, callback) {
+    updateSingleField: function (itemId, fldToSet, valueToSetTo, callback) {
         var self = this;
 
         self.getItem(itemId, function (err, doc) {
@@ -90,7 +90,7 @@ TaskDao.prototype = {
                 callback(err);
 
             } else {
-                doc.completed = true;
+                doc[fldToSet] = valueToSetTo;
 
                 self.client.replaceDocument(doc._self, doc, function (err, replaced) {
                     if (err) {
