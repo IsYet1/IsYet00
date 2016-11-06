@@ -81,7 +81,7 @@ TaskList.prototype = {
         var completedTasks = Object.keys(req.body);
 
         async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-            self.taskDao.completeItem(completedTask, function (err) {
+            self.taskDao.updateSingleField(completedTask, 'isComplete', true, function (err) {
                 if (err) {
                     callback(err);
                 } else {
